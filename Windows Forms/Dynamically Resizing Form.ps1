@@ -1,3 +1,6 @@
+using Assembly System.Drawing;
+using Assembly System.Windows.Forms;
+
 <#
     This script Renders a simple form. 
     - On Resize for the $Form the Controls will be resized and relocated accordingly.
