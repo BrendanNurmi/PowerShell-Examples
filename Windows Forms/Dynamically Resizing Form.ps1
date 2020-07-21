@@ -10,8 +10,9 @@ using Assembly System.Windows.Forms;
 #>
 
 #region Setup Form
+$DefaultSize = [System.Drawing.Size]::new(500,550);
 $Form = [System.Windows.Forms.Form]::new();
-$Form.Size = [System.Drawing.Size]::new(500,550);
+$Form.Size = $DefaultSize;
 $Form.Text ="Auto Resizing Form"
 
 function resizeControls(){
@@ -25,8 +26,10 @@ function resizeControls(){
 }
 
 $Form.Add_ResizeEnd({resizeControls})
-
 function beforeResize(){
+    if (!PreviousSize){
+        $PreviousSize = $DefaultSize;
+    }
     $PreviousSize = $Form.Size;
 }
 
